@@ -291,6 +291,9 @@ else
   syn region pythonRawBytes  start=+[bB][rR]'''+ end=+'''+ keepend contains=pythonDocTest,pythonSpaceError,@Spell
 endif
 
+syn region  pythonFunctionFold  start="^\z(\s*\)\%(def\|class\)\>"
+       \ end="\ze\%(\s*\n\)\+\%(\z1\s\)\@!." fold transparent
+       
 syn match pythonRawEscape +\\['"]+ display transparent contained
 
 if s:Enabled("g:python_highlight_string_formatting")
